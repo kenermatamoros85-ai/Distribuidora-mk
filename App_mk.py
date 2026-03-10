@@ -1,4 +1,12 @@
 import streamlit as st
+
+# --- CONFIGURACIÓN DE LA PÁGINA ---
+st.set_page_config(
+    page_title="Distribuidora M&K - Ventas",
+    page_icon="📦",  # Puedes cambiar este emoji por 🚚, 💰, o 🏭
+    layout="wide"
+)
+
 import pandas as pd
 from fpdf import FPDF
 from datetime import datetime
@@ -41,7 +49,7 @@ def generar_pdf(cliente, items):
     pdf.set_font("Arial", 'B', 16)
     pdf.cell(0, 10, "DISTRIBUIDORA M&K", ln=True, align='C')
     pdf.set_font("Arial", '', 12)
-    pdf.cell(0, 10, f"Cliente: {cliente} | Fecha: {datetime.now().strftime('%d/%m/%Y')}", ln=True)
+    pdf.cell(0, 10, f"Cliente: {cliente} | Fecha: {datetime.now().strftime('%d/%m/%Y')}*, ln=True)
     pdf.ln(10)
     # Tabla simple
     pdf.cell(90, 10, "Producto", 1)
